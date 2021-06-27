@@ -28,9 +28,9 @@ export const signup = (user) => {
             if(typeof window!== 'undefined'){
                 localStorage.setItem("id", data.user._id)
                 localStorage.setItem("role", data.user.role)
+                localStorage.setItem("name", data.user.name)
                 localStorage.setItem("token", data.token)
-                // sessionStorage.setItem('role',JSON.stringify(data.id.role))
-                // sessionStorage.setItem('name',JSON.stringify(data.id.name))
+  
                 next();
             }
         }

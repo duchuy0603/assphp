@@ -3,7 +3,7 @@ import { useHistory, useParams } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { v4 as uuidv4 } from 'uuid'
 import ProductApi from '../../../api/ProductApi'
-function EditProduct({ todos, onEdit }) {
+function EditProduct({ todos, onEdit ,listcate}) {
     let { id } = useParams();
     const [product, setProduct] = useState(
 
@@ -113,10 +113,9 @@ function EditProduct({ todos, onEdit }) {
                     placeholder={products?.categoryId}
                     id="product-category"
                     {...register('categoryId', { required: true })}>
-                <option value="60ba2f3dc4e9a4041063f75f">sneaker</option>
-                    <option value="60ba42e0c4e9a4041063f763">clother</option>
-                    <option value="60ba4208c4e9a4041063f760">pant</option>
-
+                   {listcate.map((x,index)=>(
+                          <option key={index} value={x._id}>{x.name}</option>
+                     ))}
                 </select>
 
                 <label>status</label>

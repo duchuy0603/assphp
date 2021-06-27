@@ -11,14 +11,19 @@ const ProductDetailPage = ({todos}) => {
   console.log(product)
     return (
         <div>
-             <div className=" item " >
-               
-               <div className="  sp " >
-               <NavLink className="Link" to={"/product/"+ product._id}><img src={"http://localhost:4000/api/products/photo/"+product._id} height="250px" width="230"></img></NavLink>
-             <div className="product-name">{product.name}</div>
-             <NavLink className="Link" to=""><span>{product.price}$</span></NavLink>
+             <div className=" row " >
+               <div className="col-md-8 detail-image">
+               <NavLink className="Link" to={"/product/"+ product._id}><img src={"http://localhost:4000/api/products/photo/"+product._id} height="650px" width="530"></img></NavLink>
+               </div>
+               <div className=" col-md-4  " >
+            
+             <h2>{product.name}</h2>
+             <h4>Mô Tả:</h4>
+             <div className="product-name">{product.description}</div>
+             <h4>Giá Bán:</h4>
+             <NavLink className="Link" to=""><span  className="price">{product.price}$</span></NavLink>
              <br/>
-             <button className="btn-cart"> Mua Ngay</button>
+             <button className="btn btn-danger btn-cart"> Mua Ngay</button>
            </div>
        </div>
     

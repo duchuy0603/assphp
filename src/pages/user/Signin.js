@@ -4,11 +4,12 @@ import { API } from '../../config'
 import { useHistory } from 'react-router'
 import { useForm } from 'react-hook-form'
 import { authenticate ,signin} from '../../auth'
+import { Link } from 'react-router-dom'
 const Signin = () => {
     let history = useHistory();
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [error, seterror] = useState("");
-    const [loading, setloadng] = useState(false);
+    const [loading, setloading] = useState(false);
     const signin = (user) => {
         return fetch(`${API}/signin`, {
             method: "POST",
@@ -25,12 +26,12 @@ const Signin = () => {
 
 
     const onSubmit = (data, e) => {
-        setloadng(true);
+        setloading(true);
         signin(data)
             .then(dataUser => {
                 if (dataUser.error) {
                     seterror(dataUser.error);
-                    setloadng(false);
+                    setloading(false);
                 } else {
                     authenticate(dataUser,()=>{
                         history.push("/");
@@ -77,6 +78,9 @@ return loading &&<div className="alert alert-info">
                 </div>
 
                 <button className="btn btn-primary">Signin</button>
+                <br/>
+                <span>Bạn chưa có tài khoản  <Link to="/user">Đăng kí</Link></span>
+                
             </form>
 
         )

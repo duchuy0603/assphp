@@ -70,12 +70,7 @@ Link span{
   flex-wrap: wrap;
  
 }
-.item{
-  flex: 1;
- margin-left: 2px;
- margin-right: 2px;
- justify-content: flex-end;
-}
+
 .side-bar{
   flex: 1;
   padding-right: 50px;
@@ -86,7 +81,9 @@ text-align: center;
 .Link{
   text-decoration: none;
 }
-
+.detail-image{
+  padding-left:100px;
+}
 
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
@@ -146,12 +143,20 @@ text-align: center;
   letter-spacing: -.05rem;
 }
 .btn-cart{
-  background-color: red;
-  color: white;
- border-radius: 10px;
- height: 35px;
+  
+ border: none;
+ width: 300px;
+ height: 45px;
 }
+.price{
+  font-size: 35px;
+}
+.username{
+  color: white;
+}
+.btn-menu{
 
+}
 
 /* RESPONSIVE CSS
 -------------------------------------------------- */

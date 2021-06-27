@@ -1,13 +1,80 @@
-import React from 'react'
-
-const Search = () => {
+import React, { useState } from 'react'
+import { NavLink } from 'react-router-dom';
+var userId=localStorage.getItem('id')
+function Search({todos,onRemove}) {
+    const [search,setsearch]=useState([]);
     return (
-        <form className="d-flex mx-3">
-            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-            <button className="btn btn-outline-success" type="submit">Search</button>
-     
-        </form>
-    )
+        <div>
+            
+              <input className="user" type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="search" onChange={e=>setsearch(e.target.value)}/>
+      
+              <button className="btn btn-primary " ><NavLink className="btnAdd" to="/admin/addproduct">Thêm Sản Phẩm</NavLink></button>
+
+     {todos.filter((val)=>{
+         if(search==""){
+             return val;
+         }else if(val.name.toLowerCase().includes(search.toLowerCase())){
+             return val;
+         }
+         
+     }).map((val,key)=>{
+         return(
+             <div className="user"  key={key}> 
+
+<table className="table table-striped table-sm mx-2 px-4">
+<thead>
+<tr>
+  <th>id</th>
+  <th>Name</th>
+  <th>Pirce</th>
+  <th>Image</th>
+  <th>Quantity</th>
+  <th>Category</th>
+  <th>status</th>
+  <th></th>
+  <th></th>
+</tr>
+</thead>
+          <tbody>
+       
+              <tr >
+                <td>{val._id}</td>
+                <td>{val.name}</td>
+                <td>{val.price}</td>
+                <td> <img src={"http://localhost:4000/api/products/photo/" + val._id} alt="" height="120px" width="110px" /></td>
+               
+                <td>{val.quantity}</td>
+                <td>{val.categoryId}</td>
+                <td>{val.status}
+                </td>
+                <NavLink to={"/admin/editproduct/" + val._id}><td><button className="btn btn-primary" >Update</button></td></NavLink>
+                <td><button className="btn btn-danger" onClick={() => onRemove(val._id,userId)} >Delete</button></td>
+
+              </tr>
+
+       
+
+          </tbody>
+        </table>
+             </div>
+         )
+     })
+     }
+        </div>
+    );
 }
 
-export default Search
+export default Search;
+{/* <thead>
+<tr>
+  <th>id</th>
+  <th>Name</th>
+  <th>Pirce</th>
+  <th>Image</th>
+  <th>Quantity</th>
+  <th>Category</th>
+  <th>status</th>
+  <th></th>
+  <th></th>
+</tr>
+</thead> */}

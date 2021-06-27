@@ -18,8 +18,8 @@ const Header = () => {
           
               <Nav />
              
-             
-              <Search />
+            
+          
              
            <User/>
             </div>

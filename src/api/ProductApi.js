@@ -20,10 +20,10 @@ const ProductApi = {
     //         headers: { 'Authorization': 'Bearer ' + token }
     //     });
     // },
-    add(product,id) {
+    add(product,userId) {
     
 
-        const url = `/products/${id}`;
+        const url = `/products/${userId}`;
         return axiosClient.post(url, product);
     },
     // remove(id, token) {

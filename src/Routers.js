@@ -21,11 +21,14 @@ import WebsiteLayout from './layouts/website';
 import Signin from '././pages/user/Signin'
 import Signup from '././pages/user/Signup'
 import Page from './pages/product/Page';
+import Pagination from './Pagination';
+import Update from './pages/user/update';
+import Search from './components/Search';
 // import SearchPro from './components/SearchPro';
 
 const routers = (props => (
   //forceRefresh de reload lai
-  <Router  >
+  <Router >
     <Switch>
       {/* admin layout */}
       <Route exact path="/admin/:path/:id?">
@@ -35,7 +38,7 @@ const routers = (props => (
               Dashboard Page
             </Route>
             <Route exact path="/admin/listpro">
-              <ListPro  {...props} />
+              <ListPro  {...props} children={<ListPro/>}/>
             </Route>
             <Route exact path="/admin/addproduct" >
               <AddProduct {...props} />
@@ -52,6 +55,12 @@ const routers = (props => (
             </Route>
             <Route exact path="/admin/editcategory/:id" children={<Editcategory />}>
               <Editcategory {...props} />
+            </Route>
+            <Route exact path="/admin/Page/:id" children={<Pagination />}>
+              <Pagination {...props} />
+            </Route>
+            <Route exact path="/admin/update/:id" children={<update />}>
+              <Update {...props} />
             </Route>
             {/* <Route exact path="/admin/SearchPro" >
               <SearchPro {...props} />
@@ -84,6 +93,9 @@ const routers = (props => (
             </Route>
             <Route exact path="/user" >
               <Signup />
+            </Route>
+            <Route exact path="/search" >
+              <Search {...props} />
             </Route>
           </Switch>
         </WebsiteLayout>

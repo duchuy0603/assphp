@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-import SearchPro from "../../components/SearchPro";
+import Search from "../../components/Search";
+import Pagination from "../../Pagination";
 import { API } from "../../config";
 function ListPro({ todos, onRemove }) {
   const userId=localStorage.getItem('id')
@@ -15,8 +16,9 @@ function ListPro({ todos, onRemove }) {
   
   return (
     <div>
-      {/* <SearchPro/> */}
+      
       <h2>Quản lý Sản Phẩm</h2>
+      {/* <Search/> */}
       <button className="btn btn-primary " ><NavLink className="btnAdd" to="/admin/addproduct">Thêm Sản Phẩm</NavLink></button>
       <div class="table-responsive">
         <table class="table table-striped table-sm">
@@ -55,6 +57,7 @@ function ListPro({ todos, onRemove }) {
           </tbody>
         </table>
       </div>
+      {/* <Pagination/> */}
     </div>
   )
 }

@@ -9,8 +9,8 @@ const CategoryApi = {
         const url = `/categories/${id}`;
         return axiosClient.get(url);
     },
-    add(categories, id) {
-        const url = `/categories/${id}`;
+    add(categories, userId) {
+        const url = `/categories/${userId}`;
         return axiosClient.post(url, categories);
     },
     remove(id,userId) {

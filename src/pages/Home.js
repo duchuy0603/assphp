@@ -25,7 +25,7 @@ Summer's latest collection. <span className="text-muted">It'll blow your mind.</
         <p className="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
       </div>
       <div className="col-md-5">
- <NavLink to="/category/">  <img className="featurette-image img-fluid mx-auto"src={logo4}  alt="" /></NavLink>
+ <NavLink to="/category/60ba42e0c4e9a4041063f763">  <img className="featurette-image img-fluid mx-auto"src={logo4}  alt="" /></NavLink>
       </div>
     </div>
     <hr className="featurette-divider" />
@@ -37,7 +37,7 @@ Summer's latest collection. <span className="text-muted">It'll blow your mind.</
         <br/>
       </div>
       <div className="col-md-5 order-md-1">
-      <NavLink to="/category/">  <img className="featurette-image img-fluid mx-auto"src={logo7}  /></NavLink>
+      <NavLink to="/category/60ba2f3dc4e9a4041063f75f">  <img className="featurette-image img-fluid mx-auto"src={logo7}  /></NavLink>
       </div>
     </div>
     <hr className="featurette-divider" />
@@ -47,7 +47,7 @@ Summer's latest collection. <span className="text-muted">It'll blow your mind.</
         <p className="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
       </div>
       <div className="col-md-5">
-      <NavLink to="/category/">  <img className="featurette-image img-fluid mx-auto"src={logo5} /></NavLink>
+      <NavLink to="/category/60ba4208c4e9a4041063f760">  <img className="featurette-image img-fluid mx-auto"src={logo5} /></NavLink>
       </div>
     </div>
     <hr className="featurette-divider" />

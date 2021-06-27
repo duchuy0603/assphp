@@ -3,9 +3,10 @@ import { useHistory } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { v4 as uuidv4 } from 'uuid'
 import ProductApi from '../../../api/ProductApi'
-function AddProduct({ onAdd }) {
+function AddProduct({ onAdd ,listcate}) {
     let history = useHistory();
-    let userId = localStorage.getItem("id")
+    let userId = localStorage.getItem("id");
+  
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = (data) => {
         const add = new FormData();
@@ -91,11 +92,13 @@ function AddProduct({ onAdd }) {
                 <select className="form-control"
                  id="product-category"
                  {...register('categoryId', { required: true })}>
-                    <option value="60ba2f3dc4e9a4041063f75f">sneaker</option>
-                    <option value="60ba42e0c4e9a4041063f763">clother</option>
-                    <option value="60ba4208c4e9a4041063f760">pant</option>
+                     {listcate.map((x,index)=>(
+                          <option key={index} value={x._id}>{x.name}</option>
+                     ))}
+                  
 
                 </select>
+                
 
                 <label>status</label>
                 <select className="form-control" name="status"
