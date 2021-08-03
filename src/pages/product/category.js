@@ -38,4 +38,4 @@ const result=todos.filter(product=>product.categoryId==id);
     )
 }
 
-export default CategoryPage
+export default CategoryPage;

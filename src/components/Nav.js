@@ -32,7 +32,7 @@ const Nav = () => {
                 <Link className="nav-link"id="admin" to="admin/listcate">category</Link>
             </li>
             <li className="nav-item admin">
-                <Link className="nav-link" to="product">page</Link>
+                <Link className="nav-link" to="/product">page</Link>
             </li>
        
             

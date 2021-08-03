@@ -75,12 +75,12 @@ function App() {
       console.log(error);
     }
   }
-  const onChangecate= async()=>{
-             const {data:products}=await ProductApi.getAll();
-             const newProduct=products.filter(product=>product.categoryId===id)
-             setTodos(newProduct)
+  // const onChangecate= async()=>{
+  //            const {data:products}=await ProductApi.getAll();
+  //            const newProduct=products.filter(product=>product.categoryId===id)
+  //            setTodos(newProduct)
 
-  }
+  // }
   ///category
   const [cate, setcate] = useState([]);
   useEffect(() => {
@@ -150,7 +150,7 @@ listuser();
         onAddCate={onHandleAddcate}
         onRemovecate={onHandleRemovecate}
         onEditCate ={onHandleEditCate}
-        changecate={onChangecate}
+        // changecate={onChangecate}
         />
     </div>
   );

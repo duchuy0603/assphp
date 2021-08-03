@@ -3,15 +3,14 @@ import { useHistory } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { v4 as uuidv4 } from 'uuid'
 import ProductApi from '../../../api/ProductApi'
-function AddProduct({ onAdd ,listcate}) {
+function AddProduct({ onAdd, listcate }) {
     let history = useHistory();
     let userId = localStorage.getItem("id");
-  
+
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = (data) => {
         const add = new FormData();
         add.append("name", data.name)
-
         add.append("price", data.price);
         add.append("photo", data.photo[0]);
         add.append("description", data.description);
@@ -19,14 +18,9 @@ function AddProduct({ onAdd ,listcate}) {
         add.append("status", data.status);
         add.append("categoryId", data.categoryId);
         add.append("shipping", true);
-
-        onAdd(add,userId);
-
-
+        onAdd(add, userId);
         history.push('/admin/listpro')
-
     }
-
     return (
         <div>
             <h2>Thêm sản Phẩm</h2>
@@ -39,22 +33,22 @@ function AddProduct({ onAdd ,listcate}) {
                     className={`form-control ${errors.name ? "border border-danger" : ""}`}
 
                 />
-              
+
                 {errors.name && <span className="text-warning">chưa nhập tên</span>}
-                <br/>
+                <br />
                 <label>Price</label>
-               
+
                 <input
                     type="number"
                     className="form-control"
-                    {...register('price', { required: true ,min:1,max:999999999999})}
+                    {...register('price', { required: true, min: 1, max: 999999999999 })}
 
                     className={`form-control ${errors.price ? "border border-danger" : ""}`}
                     id="product-price"
                 />
 
                 {errors.price && <span className="text-warning">giá không hợp lệ</span>}
-                <br/>
+                <br />
                 <label>image</label>
                 <input
                     type="file"
@@ -65,40 +59,40 @@ function AddProduct({ onAdd ,listcate}) {
                     id="product-image"
                 />
                 {errors.photo && <span className="text-warning">chưa có ảnh</span>}
-                <br/>
+                <br />
                 <label>description</label>
                 <textarea
-                   
+
                     className="form-control"
                     {...register('description', { required: true })}
 
                     id="product-description"
                 />
-              
-                <br/>
+
+                <br />
                 <label>quantity</label>
                 <input
                     type="number"
                     className="form-control"
-                    {...register('quantity', { required: true ,min:0})}
+                    {...register('quantity', { required: true, min: 0 })}
 
                     className={`form-control ${errors.quantity ? "border border-danger" : ""}`}
                     id="product-quantity"
 
                 />
                 {errors.quantity && <span className="text-warning">bạn chưa nhập số lượng</span>}
-                <br/>
+                <br />
                 <label>Category</label>
                 <select className="form-control"
-                 id="product-category"
-                 {...register('categoryId', { required: true })}>
-                     {listcate.map((x,index)=>(
-                          <option key={index} value={x._id}>{x.name}</option>
-                     ))}
-                  
+                    id="product-category"
+                    {...register('categoryId', { required: true })}>
+                    {listcate.map((x, index) => (
+                        <option key={index} value={x._id}>{x.name}</option>
+                    ))}
+
 
                 </select>
-                
+
 
                 <label>status</label>
                 <select className="form-control" name="status"
