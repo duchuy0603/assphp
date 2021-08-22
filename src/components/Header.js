@@ -3,6 +3,8 @@ import Nav from './Nav';
 import Search from './Search';
 import User from './User';
 import Slide from './Slide';
+import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 const Header = () => {
   return (
     <div>
@@ -15,13 +17,11 @@ const Header = () => {
               <span className="navbar-toggler-icon" />
             </button>
             <div className="collapse navbar-collapse" id="navbarCollapse">
-          
               <Nav />
-             
-            
-          
-             
-           <User/>
+              <User />
+              <Link className="nav-link " to="/cart">  <span class="material-icons-outlined">
+                local_mall
+              </span></Link>
             </div>
           </div>
         </nav>

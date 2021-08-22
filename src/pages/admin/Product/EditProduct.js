@@ -51,6 +51,7 @@ function EditProduct({ todos, onEdit ,listcate}) {
                 <label>Name</label>
                 <input
                     type="text"
+                   
                     placeholder={products?.name}
                     id="product-name"
 
@@ -63,7 +64,7 @@ function EditProduct({ todos, onEdit ,listcate}) {
 
                 <input
                     type="number"
-                   placeholder={products?.price}
+                    placeholder={products?.price}
                     className="form-control"
                     
                     {...register('price', { required: true ,min:1,max:999999999999999999})}
@@ -78,7 +79,7 @@ function EditProduct({ todos, onEdit ,listcate}) {
                     className="form-control"
               
                     {...register('photo', { required: true })}
-
+                   
                     className={`form-control ${errors?.photo ? "border border-danger" : ""}`}
                     id="product-image"
                 />
@@ -110,7 +111,7 @@ function EditProduct({ todos, onEdit ,listcate}) {
                 {errors.quantity && <span className="text-warning">số lượng không hợp lệ</span>}
                 <label>Category</label>
                 <select className="form-control"
-                    placeholder={products?.categoryId}
+                    value={products?.categoryId}
                     id="product-category"
                     {...register('categoryId', { required: true })}>
                    {listcate.map((x,index)=>(
@@ -122,7 +123,8 @@ function EditProduct({ todos, onEdit ,listcate}) {
                 <select className="form-control" name="status"
 
                     id="product-status"
-                    placeholder={products?.status}
+                  
+                    value={products?.status}
                     {...register('status', { required: true })} >
                     <option value="còn hàng">Còn hàng</option>
                     <option value="hết hàng">Hết hàng</option>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useForm } from 'react-hook-form';
-import { useHistory, useParams } from 'react-router-dom'
-
+import { useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 const Editcategory = ({ onEditCate, listcate }) => {
     let history = useHistory();
     let userId = localStorage.getItem("id")
@@ -11,7 +11,9 @@ const Editcategory = ({ onEditCate, listcate }) => {
         const add = new FormData();
         add.append('name', data.name);
         onEditCate(id, userId, add);
+      
         history.push("/admin/listcate");
+       
     }
     const { 0: categorys } = listcate.filter(x => x._id === id);
     return (

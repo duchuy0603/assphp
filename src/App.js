@@ -9,23 +9,25 @@ import UserApi from './api/UserApi';
 import { uuidv4 as v4 } from "uuid"
 import ListCate from './pages/product/ListCate';
 import { useParams } from 'react-router-dom';
-
+import Cart from './Cart/Cart';
+import ProductDetailPage from './pages/product/Detail';
+import { CartProvider } from 'react-use-cart';
 
 function App() {
+  
   ///product
   const [todos, setTodos] = useState([]);
   
-  const {id}=useParams
+  
   useEffect(() => {
     console.log("sau");
-    // didmount
   const listtodo = async () => {
   
     try {
-      // const { data: products } = await ProductApi.getAll();
-      const respone=await fetch('http://localhost:4000/api/products');
-      const data=await respone.json();
-      setTodos(data);
+      // const {data:products}=await ProductApi.getAll();
+         const {data:product}=await ProductApi.getAll();
+      setTodos(product);
+    
    
     } catch (error) {
       console.log(error)
@@ -75,6 +77,24 @@ function App() {
       console.log(error);
     }
   }
+//   const [listdetail,setdetail]=useState([]);
+ 
+//   useEffect(() => {
+
+//     const Detail=async()=>{
+//   try {
+//     const{data:detail}=await ProductApi.get(id);
+// setdetail(detail)
+//   } catch (error) {
+//     console.log(error);
+//   }
+//     }
+//     Detail();
+//     return () => {
+    
+//     };
+//   }, [])
+
   // const onChangecate= async()=>{
   //            const {data:products}=await ProductApi.getAll();
   //            const newProduct=products.filter(product=>product.categoryId===id)
@@ -90,12 +110,16 @@ function App() {
         console.log(categorys)
        
         setcate(categorys);
+        
        // localStorage.setItem('category',JSON.stringify(categorys));
       } catch (error) {
         console.log(error)
       };
     }
     listcategory();
+    return()=>{
+      setcate(null);
+    }
   }, [])
   const onHandleAddcate = async (category, userId) => {
     try {
@@ -139,21 +163,36 @@ setuser(user);
 }
 listuser();
  },[])
-
+//  const [pagination,setpagination]=useState({
+//    _page:1,
+//    _limit:10,
+//    _totalRows:11
+//  });
+const handlePageChange=(newPage)=>{
+console.log("huy",newPage);
+}
   return (
     <div className="container">
+      <CartProvider/>
       <Routers onAdd={onHandleAdd}
         todos={todos}
+        listcate={cate}
+        onEditCate ={onHandleEditCate}
         onRemove={onHandleRemove}
         onEdit={onHandleEdit}
-        listcate={cate}
+      //  product={listdetail}
         onAddCate={onHandleAddcate}
         onRemovecate={onHandleRemovecate}
-        onEditCate ={onHandleEditCate}
-        // changecate={onChangecate}
+     
+        
+        // pagination={pagination}
+        onPageChange={handlePageChange}
+        
         />
+
     </div>
   );
+  
 }
 
 export default App;

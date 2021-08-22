@@ -3,10 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import 'material-icons/iconfont/material-icons.css';
+import Cart from './Cart/Cart';
+import ProductDetailPage from './pages/product/Detail';
+import { CartProvider } from 'react-use-cart';
 ReactDOM.render(
   <React.StrictMode>
+
     <App />
+ 
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -20,13 +20,13 @@ function ListPro({ todos, onRemove }) {
       <h2>Quản lý Sản Phẩm</h2>
       {/* <Search/> */}
       <button className="btn btn-primary " ><NavLink className="btnAdd" to="/admin/addproduct">Thêm Sản Phẩm</NavLink></button>
-      <div class="table-responsive">
-        <table class="table table-striped table-sm">
+      <div className="table-responsive">
+        <table className="table table-striped table-sm">
           <thead>
             <tr>
               <th>id</th>
               <th>Name</th>
-              <th>Pirce</th>
+              <th >Pirce</th>
               <th>Image</th>
               <th>Quantity</th>
               <th>Category</th>
@@ -59,6 +59,7 @@ function ListPro({ todos, onRemove }) {
       </div>
       {/* <Pagination/> */}
     </div>
+     
   )
 }
 
